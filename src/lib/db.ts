@@ -4,9 +4,7 @@ declare global {
   var _mongoClientPromise: Promise<MongoClient> | undefined
 }
 
-const uri =
-  'mongodb+srv://alandavidhenry:HmcetJFvrzmd0iIM@mess-booking-app.sopvttk.mongodb.net/?retryWrites=true&w=majority&appName=mess-booking-app'
-console.log('URI value:', uri)
+const uri = process.env.MONGODB_URI
 const options = {}
 
 let client: MongoClient
