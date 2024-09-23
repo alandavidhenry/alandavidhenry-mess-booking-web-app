@@ -13,11 +13,11 @@ interface Room {
   pricePerNight: number;
 }
 
-interface BookingFormProps {
+interface RoomBookingFormProps {
   rooms: Room[];
 }
 
-export default function BookingForm({ rooms }: BookingFormProps) {
+export default function RoomBookingForm({ rooms }: RoomBookingFormProps) {
   const [selectedRoom, setSelectedRoom] = useState('')
   const [date, setDate] = useState('')
   const [error, setError] = useState('')
@@ -25,7 +25,7 @@ export default function BookingForm({ rooms }: BookingFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
-    const res = await fetch('/api/bookings', {
+    const res = await fetch('/api/room-bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export default function BookingForm({ rooms }: BookingFormProps) {
   return (
     <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>Book a Room</CardTitle>
+        <CardTitle>Book a room</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -67,7 +67,7 @@ export default function BookingForm({ rooms }: BookingFormProps) {
             onChange={(e) => setDate(e.target.value)}
             required
           />
-          <Button type="submit" className="w-full">Book Room</Button>
+          <Button type="submit" className="w-full">Book a room</Button>
           {error && <p className="text-red-500">{error}</p>}
         </form>
       </CardContent>

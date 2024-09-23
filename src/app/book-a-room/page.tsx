@@ -1,4 +1,4 @@
-import BookingForm from '@/components/BookingForm'
+import RoomBookingForm from '@/components/RoomBookingForm'
 
 async function getRooms() {
   const res = await fetch('http://localhost:3000/api/rooms', { cache: 'no-store' })
@@ -8,13 +8,13 @@ async function getRooms() {
   return res.json()
 }
 
-export default async function BookPage() {
+export default async function BookARoomPage() {
   const rooms = await getRooms()
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Book a Room</h1>
-      <BookingForm rooms={rooms} />
+      <h1 className="text-2xl font-bold mb-4">Book a room</h1>
+      <RoomBookingForm rooms={rooms} />
     </div>
   )
 }
