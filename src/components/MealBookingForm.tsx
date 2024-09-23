@@ -9,8 +9,6 @@ import { Button } from "@/components/ui/button"
 interface Meal {
   _id: string;
   name: string;
-  capacity: number;
-  pricePerNight: number;
 }
 
 interface MealBookingFormProps {
@@ -56,7 +54,7 @@ export default function MealBookingForm({ meals }: MealBookingFormProps) {
             <SelectContent>
               {meals.map((meal) => (
                 <SelectItem key={meal._id} value={meal._id}>
-                  {meal.name} - Capacity: {meal.capacity}, Price: ${meal.pricePerNight}/night
+                  {meal.name}
                 </SelectItem>
               ))}
             </SelectContent>
